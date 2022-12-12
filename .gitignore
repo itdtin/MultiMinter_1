@@ -1,0 +1,6 @@
+.DS_Store
+.idea/
+artifacts/
+cache/
+node_modules/
+wallets.json

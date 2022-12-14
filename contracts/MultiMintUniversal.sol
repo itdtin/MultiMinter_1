@@ -59,15 +59,8 @@ contract MultiMinter is Ownable {
     bool initialized;
     address public _owner;
 
-    constructor(
-        address _saleAddress,
-        uint256 _nftPrice,
-        uint256 _maxSupply
-    ) {
-        saleAddress = _saleAddress;
+    constructor() {
         _owner = msg.sender;
-        nftPrice = _nftPrice;
-        maxSupply = _maxSupply;
     }
 
     function setDropInfo(

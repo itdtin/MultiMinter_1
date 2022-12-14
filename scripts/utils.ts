@@ -1,4 +1,6 @@
 import fs from "fs";
+import {Contract} from "ethers";
+import {ethers} from "hardhat";
 
 export async function saveJSON(json: object | string, fileName: string) {
     if (typeof json === "string") json = JSON.parse(json);

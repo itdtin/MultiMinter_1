@@ -139,7 +139,7 @@ contract MultiMinter is Ownable {
         payable
     {
         require(
-            clones.length * nftPrice * nftNumberPerClone <= msg.value,
+            amount * nftPrice * nftNumberPerClone <= msg.value,
             "Not enough Ether"
         );
         require(clones.length >= amount, "Not enough clones");
@@ -539,5 +539,9 @@ contract MultiMinter is Ownable {
     ) public virtual returns (bytes4) {
       // return this.onERC1155Received.selector;
       return 0xf23a6e61;
+    }
+
+    function clonesLength() public view returns(uint) {
+        return clones.length;
     }
 }

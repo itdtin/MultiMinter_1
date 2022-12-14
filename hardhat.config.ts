@@ -16,8 +16,8 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    goerli: {
-      url: "https://thrilling-convincing-fire.ethereum-goerli.quiknode.pro/2dccda67a7706727111291f27b483c645ce05f77",
+    eth: {
+      url: "https://eth-mainnet.g.alchemy.com/v2/00W7G2cA4NdHJYk31uIzk5h_YFwVPKZb",
       accounts: [pk],
     },
   },

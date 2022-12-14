@@ -54,6 +54,7 @@ export interface MultiMinterInterface extends utils.Interface {
   functions: {
     "_owner()": FunctionFragment;
     "clones(uint256)": FunctionFragment;
+    "clonesLength()": FunctionFragment;
     "deployClones(uint256)": FunctionFragment;
     "fundClones(uint256,uint256)": FunctionFragment;
     "hotMintWithoutIDs(uint256,uint8,uint8,bytes)": FunctionFragment;
@@ -89,6 +90,7 @@ export interface MultiMinterInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "_owner"
       | "clones"
+      | "clonesLength"
       | "deployClones"
       | "fundClones"
       | "hotMintWithoutIDs"
@@ -124,6 +126,10 @@ export interface MultiMinterInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "clones",
     values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "clonesLength",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "deployClones",
@@ -316,6 +322,10 @@ export interface MultiMinterInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "_owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "clones", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "clonesLength",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "deployClones",
     data: BytesLike
   ): Result;
@@ -463,6 +473,8 @@ export interface MultiMinter extends BaseContract {
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<[string]>;
+
+    clonesLength(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     deployClones(
       quantity: PromiseOrValue<BigNumberish>,
@@ -648,6 +660,8 @@ export interface MultiMinter extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  clonesLength(overrides?: CallOverrides): Promise<BigNumber>;
+
   deployClones(
     quantity: PromiseOrValue<BigNumberish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -831,6 +845,8 @@ export interface MultiMinter extends BaseContract {
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<string>;
+
+    clonesLength(overrides?: CallOverrides): Promise<BigNumber>;
 
     deployClones(
       quantity: PromiseOrValue<BigNumberish>,
@@ -1026,6 +1042,8 @@ export interface MultiMinter extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    clonesLength(overrides?: CallOverrides): Promise<BigNumber>;
+
     deployClones(
       quantity: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -1210,6 +1228,8 @@ export interface MultiMinter extends BaseContract {
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
+
+    clonesLength(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     deployClones(
       quantity: PromiseOrValue<BigNumberish>,
